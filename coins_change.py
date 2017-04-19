@@ -38,6 +38,12 @@ def coins_change_bottom_up(n, coins):
 
     return table[i][j]
 
+def coins_change_bottomup_short(n, coins):
+    table = [1]+[0]*n
+    for coin in coins: 
+        for i in range(coin, n+1): 
+            table[i] += table[i-coin] 
+    return table[n]
 
 n = 10000
 coins = [1, 2, 3, 5]
