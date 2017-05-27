@@ -1,7 +1,7 @@
 import sys
 sys.setrecursionlimit(2000)
 
-N = 1000
+N = 100
 cache = {}
 
 solution = set()
