@@ -10,7 +10,6 @@ class Solution:
     def __init__(self, n, c, w):
         self.P = {1: 0}  # parents
         self.T = defaultdict(lambda: [])
-        self.TOTAL = 0
 
         self.W = {}  # weights
         self.E = defaultdict(lambda: [])  # Edges
