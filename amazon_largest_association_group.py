@@ -20,8 +20,8 @@ def find_largest_connected_group(pairs):
         visited.add(item) 
         adjacent_items = G.get(item)
         
-        # if item has no adjacents 
-        # but the parent
+        # if item has no adjacents 
+        # but the parent
         if len(adjacent_items) == 1:
             connected_groups.append(
             	    copy(group))
