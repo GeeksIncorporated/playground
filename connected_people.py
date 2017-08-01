@@ -1,8 +1,8 @@
 """
 Given that all family members knows each other,
 as well as all people that living in the same town, knows each other. 
-Find the minimal connections between 2 diffrent people, to get them "know"
-each other.
+Find the minimal connections between 2 diffrent people, 
+to get them "know" each other.
 """
 
 from Queue import Queue
@@ -53,6 +53,10 @@ def solve(person1, person2):
         if person1 == person2:
             return 0
 
+		# BFS with loop and Queue
+		# we weill be storing (# #) in queue as a delimiter
+		# to indicate the tree-level is done so the depth counter
+		# should be increased.
         q = Queue()
         q.put(person1)
         q.put(("#", "#"))
@@ -60,9 +64,11 @@ def solve(person1, person2):
 
         while q.qsize() > 1:
             person = q.get()
+
+			# delimeter is met, the depth increases
             if person == ("#", "#"):
                 depth += 1
-                q.put(person)
+                q.put(person)	# delimeter reenqueued
                 continue
 
             visited.add(person)
@@ -70,17 +76,23 @@ def solve(person1, person2):
             for direct_connection in get_all_direct_connections(person):
                 if direct_connection in visited:
                     continue
-
+				# store the parent for this connection
+				# we will use it to restore the whole path
                 parent[direct_connection] = person
 
+				# found the target person
                 if direct_connection == person2:
                     return depth
 
+				# enque connection for further search
                 q.put(direct_connection)
 
+		# the target person was not found
         return -1
 
     res = bfs(person1, person2)
+
+	# Restoring the whole path
     p = person2
     connection = []
     for i in xrange(res + 1):
