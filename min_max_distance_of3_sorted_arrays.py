@@ -51,7 +51,6 @@ class Solution():
                 heapq.heappush(heap, (arr_names[array][index], index, array))
         return min_max_distance
 
-
 A = [1, 4, 10]
 B = [2, 15, 20]
 C = [10, 12]

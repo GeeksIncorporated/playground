@@ -1,16 +1,20 @@
 import bisect
 
-import sys
-
 a = [28, 33, 95, 63, 33, 35, 83, 29, 84, 99]
 
 
 def find_lis(arr):
-    M = [1] + [sys.maxint] * len(arr)
+    M = []
     for i in range(len(arr)):
-        bisect.insort_right(M, arr[i])
-    return len(M)
+        el = arr[i]
+        ind = bisect.bisect_right(M, el)
+        if ind < len(M):
+            M[ind] = el
+        else:
+            M.append(el)
+    return M
 
-# assert(bs(range(100), 10), 10)
 
-print find_lis(a)
+lis = find_lis(a)
+print lis
+print len(lis)
