@@ -19,22 +19,14 @@ class Solution:
     # @param A : tuple of integers
     # @return an integer
     def maxProfit(self, A):
-        max_profit = 0
-        maxs = self.precalculate_suffix_maxes(A)
-
-        for i in xrange(len(A)):
-            max_profit = max(maxs[i] - A[i], max_profit)
-        return max_profit
-
-    def precalculate_suffix_maxes(self, A):
-        maxs = {}
-        curr_max = 0
-        for i in xrange(len(A) - 1, -1, -1):
-            curr_max = max(A[i], curr_max)
-            maxs[i] = curr_max
-        return maxs
-
+        min_so_far = 1000000000000
+        profit = 0
+        for a in A:
+            if a < min_so_far:
+                min_so_far = a
+            profit = max(profit, a - min_so_far)
+        return profit
 
 s = Solution()
-A = [int(100 * math.sin(x)) for x in xrange(1000000)]
+A = [int(100 * math.sin(x)) for x in range(1000000)]
 assert s.maxProfit(A) == 198
