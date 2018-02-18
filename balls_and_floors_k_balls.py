@@ -1,27 +1,30 @@
 import sys
+
 sys.setrecursionlimit(2000)
 
-N = 1000
+
 cache = {}
 
-def solve(floors,k):
-    if k < 2 or  len(floors) < 2:
+
+def solve(balls, floors):
+    if balls < 2 or len(floors) < 2:
         return len(floors)
 
-    if (len(floors),k) in cache:
-        return cache[(len(floors),k)]
+    if (balls, len(floors)) in cache:
+        return cache[(balls, len(floors))]
 
-    min_res = sys.maxint
+    min_res = sys.maxsize
     for i in range(len(floors)):
-        res = max(solve(floors[i + 1:], k), solve(floors[:i],k-1))
+        res = max(solve(balls, floors[i + 1:]), solve(balls - 1, floors[:i]))
         if min_res > res:
             min_res = res
-            f = floors[i]
-    cache[(len(floors),k)] = min_res + 1
+    cache[(balls, len(floors))] = min_res + 1
     return min_res + 1
 
 
-print i, solve(range(1, i + 1), 4)
+balls = 2
+floors = 100
+print(solve(balls, range(1, floors)))
 
 # Empirical complexity estimates like Nlogk
 # Times are as following:

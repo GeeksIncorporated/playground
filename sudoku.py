@@ -7,7 +7,6 @@ import pygame
 
 N = 9
 
-
 def is_valid(x, y, number):
     global board
     for i in range(N):
@@ -18,8 +17,8 @@ def is_valid(x, y, number):
         if board[x][j] == number:
             return False
 
-    segment_x = x / 3  # 4 -> 1
-    segment_y = y / 3  # 7 -> 2
+    segment_x = int(x / 3)  # 4 -> 1
+    segment_y = int(y / 3)  # 7 -> 2
 
     for i in range(segment_x * 3, segment_x * 3 + 3):
         for j in range(segment_y * 3, segment_y * 3 + 3):
@@ -68,7 +67,7 @@ def solve_sudoku():
                     board[i][j] = number
                     display(board)
                     if i == N - 1 and j == N - 1:
-                        print "SOLVED"
+                        print("SOLVED")
                         pprint.pprint(board)
                         time.sleep(10)
                     else:
@@ -178,13 +177,13 @@ boards = [
 # boards = ["071840009026009000000106054082000007750000048100000920810507000000600130600013780"]
 
 for board in boards:
-    board = [map(int, list(line)) for line in [board[i:i + N] for i in xrange(0, len(board), N)]]
+    board = [list(map(int, list(line))) for line in [board[i:i + N] for i in range(0, len(board), N)]]
     init_board = deepcopy(board)
 
-    print "SUDOKU PUZZLE:"
+    print("SUDOKU PUZZLE:")
     pprint.pprint(board)
 
     st = time.time()
     solve_sudoku()
-    print "Took", time.time() - st, "sec"
-    print "Numbers tried:", checked
+    print("Took", time.time() - st, "sec")
+    print("Numbers tried:", checked)
