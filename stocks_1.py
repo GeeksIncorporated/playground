@@ -11,22 +11,21 @@
 # Input : [1 2]
 # Return :  1
 
-
-import math
+import sys
 
 
 class Solution:
     # @param A : tuple of integers
     # @return an integer
     def maxProfit(self, A):
-        min_so_far = 1000000000000
         profit = 0
+        curr_min = A[0]
         for a in A:
-            if a < min_so_far:
-                min_so_far = a
-            profit = max(profit, a - min_so_far)
+            curr_min = min(curr_min, a)
+            profit = max(profit, a - curr_min)
         return profit
 
+
 s = Solution()
-A = [int(100 * math.sin(x)) for x in range(1000000)]
-assert s.maxProfit(A) == 198
+A = [3, -1, 2, 1, 2]
+print s.maxProfit(A)

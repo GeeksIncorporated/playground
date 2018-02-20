@@ -1,3 +1,7 @@
+"""
+Given f5() which returns random integer from 1 to 5, build f7 which
+returns random 1 to 7. It's forbidden to use built in 'random'.
+"""
 from collections import defaultdict
 
 
