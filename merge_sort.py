@@ -5,9 +5,9 @@ def msort(A):
     if len(A) == 1:
         return A
 
-    mid = int(len(A) / 2)
-    l = msort(A[:mid])
-    r = msort(A[mid:])
+    m = int(len(A) / 2)
+    l = msort(A[:m])
+    r = msort(A[m:])
     i = j = 0
     results = []
     while i < len(l) and j < len(r):

@@ -1,5 +1,4 @@
 
-
 class Solution:
     # @param A : integer
     # @param B : integer
