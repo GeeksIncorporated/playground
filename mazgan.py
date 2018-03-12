@@ -1,11 +1,13 @@
+import random
 import sys
 from collections import defaultdict
 
-sys.setrecursionlimit(2024)
+import time
+
+sys.setrecursionlimit(20240)
 
 
 def mazgan(A, max_closed_in_a_row):
-
     cache = defaultdict(int)
     opened = defaultdict(int)
 
@@ -19,9 +21,11 @@ def mazgan(A, max_closed_in_a_row):
         if curr_hour == len(A):
             return 0
 
-        key = "%s_%s_%s" % (curr_hour,
-                            inside_air,
-                            time_left_to_be_closed)
+        # string of the form: h.air.time
+        key = ".".join(map(
+            str, [curr_hour,
+                  inside_air,
+                  time_left_to_be_closed]))
 
         # result is in cache return the result
         if key in cache:
@@ -64,9 +68,9 @@ def mazgan(A, max_closed_in_a_row):
 
     # filter the indeces dict by positive values (those hours when was opened
     # more times than closed)
-    indices_when_opened_more_times_than_closed = [
+    indeces_with_positive_counters = [
         k for k, v in opened.items() if v > 0]
-    return integral, indices_when_opened_more_times_than_closed
+    return integral, indeces_with_positive_counters
 
 
 A = [1, 2, 3, 4, 5]
@@ -88,8 +92,9 @@ A = [3, 2, 1, 0, 9, 8, 7]
 assert mazgan(A, 3) == (13, [0, 1, 2, 3, 6])
 
 # creating random array
-import random
-A = [random.randint(0, 10) for i in range(20)]
 
+st = time.time()
+A = [random.randint(0, 10) for i in range(1000)]
 time_left_till_forced_opened = random.randint(1, len(A) / 2)
 print(mazgan(A, time_left_till_forced_opened))
+print time.time() - st
