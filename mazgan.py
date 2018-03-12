@@ -4,21 +4,14 @@ from collections import defaultdict
 sys.setrecursionlimit(2024)
 
 
-def get_cache_key(curr_hour, inside_air, time_left_to_be_closed):
-    """
-    The string formed from current hour, inside air value
-    and time to left to be closed is the combination which uniquely specifies
-    the current algorithm state.
-    """
-    return "%s_%s_%s" % (curr_hour, inside_air, time_left_to_be_closed)
+def mazgan(A, max_closed_in_a_row):
 
-
-def mazgan(A, time_left_till_forced_opened):
     cache = defaultdict(int)
     opened = defaultdict(int)
-    max_closed_time = time_left_till_forced_opened
-    print "In:", time_left_till_forced_opened, A
-    if time_left_till_forced_opened == 1:
+
+    print "In:", max_closed_in_a_row, A
+
+    if max_closed_in_a_row == 1:
         return (sum(A), A)
 
     def solve(curr_hour, inside_air, time_left_to_be_closed):
@@ -26,7 +19,9 @@ def mazgan(A, time_left_till_forced_opened):
         if curr_hour == len(A):
             return 0
 
-        key = get_cache_key(curr_hour, inside_air, time_left_to_be_closed)
+        key = "%s_%s_%s" % (curr_hour,
+                            inside_air,
+                            time_left_to_be_closed)
 
         # result is in cache return the result
         if key in cache:
@@ -39,13 +34,13 @@ def mazgan(A, time_left_till_forced_opened):
             return outside_air + solve(
                 curr_hour + 1,
                 outside_air,
-                max_closed_time)
+                max_closed_in_a_row)
 
         # assume we should open right now
         open_now = outside_air + solve(
             curr_hour + 1,
             outside_air,
-            max_closed_time)
+            max_closed_in_a_row)
 
         # assume we should stay closed
         stay_closed = inside_air + solve(
@@ -65,7 +60,7 @@ def mazgan(A, time_left_till_forced_opened):
         cache[key] = min_res
         return min_res
 
-    integral = (solve(0, A[0], max_closed_time))
+    integral = (solve(0, A[0], max_closed_in_a_row))
 
     # filter the indeces dict by positive values (those hours when was opened
     # more times than closed)
@@ -94,7 +89,7 @@ assert mazgan(A, 3) == (13, [0, 1, 2, 3, 6])
 
 # creating random array
 import random
-
 A = [random.randint(0, 10) for i in range(20)]
+
 time_left_till_forced_opened = random.randint(1, len(A) / 2)
 print(mazgan(A, time_left_till_forced_opened))
