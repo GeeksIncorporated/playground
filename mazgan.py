@@ -5,10 +5,10 @@ from collections import defaultdict
 sys.setrecursionlimit(2024)
 
 # creating random array
-A = [random.randint(0, 100) for i in range(30)]
+A = [random.randint(0, 10) for i in range(10)]
 print(A)
 
-MAX_CLOSED_TIME = 5
+MAX_CLOSED_TIME = 3
 OPENED = set()
 CACHE = defaultdict(int)
 
@@ -34,6 +34,7 @@ def solve(curr_hour, inside_air, time_left_to_be_closed):
     # open open, there is no time to left
     if time_left_to_be_closed == 1:
         inside_air = outside_air
+        return inside_air
 
     # we reached the end of the times in our calculations
     if curr_hour == len(A) - 1:
