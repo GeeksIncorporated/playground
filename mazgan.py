@@ -11,7 +11,7 @@ def mazgan(A, max_closed_in_a_row):
     cache = defaultdict(int)
     opened = defaultdict(int)
 
-    print "In:", max_closed_in_a_row, A
+    print("In:", max_closed_in_a_row, A)
 
     if max_closed_in_a_row == 1:
         return (sum(A), A)
@@ -97,4 +97,4 @@ st = time.time()
 A = [random.randint(0, 10) for i in range(1000)]
 time_left_till_forced_opened = random.randint(1, len(A) / 2)
 print(mazgan(A, time_left_till_forced_opened))
-print time.time() - st
+print(time.time() - st)
