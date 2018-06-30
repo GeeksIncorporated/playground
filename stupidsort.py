@@ -1,9 +1,5 @@
 import time
 import random
-from copy import copy
-
-n = 1000
-arr = [random.randint(0, n) for i in range(n)]
 
 
 def is_sorted(arr):
@@ -15,26 +11,26 @@ def is_sorted(arr):
     return True
 
 
-def shuffle(arr):
-    l = 0
-    r = len(arr) - 1
+def shuffle(arr, l, r):
+    rint = random.randint
     while l < r:
-        m = random.randint(l, r)
-        if arr[l] <= arr[m]:
-            l += 1
-            continue
-        arr[m], arr[l] = arr[l], arr[m]
+        m = rint(l, r)
+        if arr[l] > arr[m]:
+            arr[m], arr[l] = arr[l], arr[m]
         l += 1
     return arr
 
+
 def stupid_sort(arr):
     while True:
-        shuffle(arr)
-        print(arr)
+        shuffle(arr, 0, len(arr) - 1)
         if is_sorted(arr):
             return arr
 
 
+n = 100
+arr = [random.randint(0, n) for i in range(n)]
+
 st = time.time()
-print(stupid_sort(copy(arr)))
+print(stupid_sort(arr))
 print(time.time() - st)

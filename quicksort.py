@@ -1,30 +1,33 @@
-"""
-Classic inplace quicksort implementation taken from 
-https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-introduction-to-algorithms-sma-5503-fall-2005/video-lectures/lecture-4-quicksort-randomized-algorithms/
-"""
-
+import time
 import random
 
 
-def sort(A, l, r):
-    if l < r:
-        p = partition(A, l, r)
-        sort(A, l, p)
-        sort(A, p + 1, r)
-    return A
+def shuffle(arr, l, r):
+    m = l
+    p = random.randint(l, r)
+    arr[p], arr[r] = arr[r], arr[p]
+
+    while l < r:
+        if arr[l] < arr[r]:
+            arr[l], arr[m] = arr[m], arr[l]
+            m += 1
+        l += 1
+
+    arr[m], arr[r] = arr[r], arr[m]
+    return m
 
 
-def partition(A, p, r):
-    i = p
-    for j in xrange(p + 1, r):
-        if A[j] <= A[p]:
-            i += 1
-            A[i], A[j] = A[j], A[i]
-
-    A[i], A[p] = A[p], A[i]
-    return i
+def stupid_sort(arr, l, r):
+    if l >= r:
+        return
+    p = shuffle(arr, l, r)
+    stupid_sort(arr, l, p)
+    stupid_sort(arr, p + 1, r)
 
 
-A = [random.randint(1, 10) for i in xrange(20)]
-print A
-print sort(A, 0, len(A))
+n = 100000
+arr = [random.randint(1, n) for i in xrange(n)]
+st = time.time()
+stupid_sort(arr, 0, len(arr) - 1)
+print time.time() - st
+print arr
