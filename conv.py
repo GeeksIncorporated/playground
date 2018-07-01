@@ -51,8 +51,8 @@ for i in range(9):
         n_mask = format(1 << (81 - (9 * i + j + 1)), "081b")
         x = int(number_masks[n], 2) ^ int(n_mask, 2)
         number_masks[n] = format(x, "081b")
-print(">>>> ", time.time() - st)
 
+print(">>>> ", time.time() - st)
 print(masks[(1, 0)])
 print(number_masks[6])
 
@@ -67,3 +67,4 @@ for i in range(9):
             min_cands_cell = (len(cands[(i,j)]), i, j, cands[(i,j)])
 print(time.time() - st)
 print(min_cands_cell)
+
