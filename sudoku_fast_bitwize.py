@@ -1,5 +1,4 @@
 # -*-coding:utf8;-*-
-import random
 import screen
 from copy import deepcopy
 from collections import defaultdict
@@ -8,6 +7,7 @@ import threading
 
 import pygame
 import logging
+import math
 
 log = logging.getLogger()
 
@@ -37,6 +37,18 @@ def build_all_cross_masks():
         for j in range(9):
             cross_masks[(i, j)] = int(''.join(build_cross_mask(i, j)), 2)
     return cross_masks
+
+
+def get_cross_mask_next(x, y):
+    mask = int(''.join(build_cross_mask(x, y)), 2)
+    while mask:
+        # print(format(mask, "081b"))
+        bit = math.log(mask & ~(mask - 1), 2)
+        bit = int(bit)
+        i = 8 - bit // 9
+        j = 8 - bit % 9
+        yield i, j
+        mask &= mask - 1
 
 
 def build_board_number_masks(board):
@@ -103,7 +115,7 @@ class Board(object):
                 screen.blit(text, textpos)
         pygame.display.flip()
 
-    def solve(self, board, depth):
+    def solve(self, board, depth, last_changed_x=-1, last_changed_y=-1):
         self.iters += 1
 
         if depth >= self.depth_limit:
@@ -119,16 +131,24 @@ class Board(object):
         cands = defaultdict(list)
         min_cands_number = 10
         min_cands_list = []
-        for i in range(9):
-            for j in range(9):
-                if board[i][j]:
-                    continue
-                cands[(i, j)] = [
-                    n for n in range(1, 10) if
-                    self.cross_masks[(i, j)] & self.number_masks[n] == 0]
-                if len(cands[(i, j)]) < min_cands_number:
-                    min_cands_number = len(cands[(i, j)])
-                    min_cands_list = (i, j, cands[(i, j)])
+
+        if last_changed_x == -1:
+            next_cell_generator = [(i, j) for j in range(9) for i in range(9)]
+        else:
+            next_cell_generator = get_cross_mask_next(
+                last_changed_x, last_changed_y)
+
+        for i, j in next_cell_generator:
+            if board[i][j]:
+                continue
+
+            cands[(i, j)] = [
+                n for n in range(1, 10) if
+                self.cross_masks[(i, j)] & self.number_masks[n] == 0]
+
+            if len(cands[(i, j)]) < min_cands_number:
+                min_cands_number = len(cands[(i, j)])
+                min_cands_list = (i, j, cands[(i, j)])
 
         if not min_cands_list:
             return False
@@ -140,7 +160,7 @@ class Board(object):
             self.number_masks[cand] |= 1 << (81 - (9 * i + j + 1))
             # self.display(board)
 
-            if self.solve(deepcopy(board), depth + 1):
+            if self.solve(deepcopy(board), depth + 1, i, j):
                 self.inprocess = False
                 return True
 
@@ -252,7 +272,7 @@ boards = [
     "300080000000700005100000000000000360002004000070000000000060130045200000000000800"]
 
 if __name__ == '__main__':
-    for b in boards[50:]:
+    for b in boards:
         print("-------------------")
         board = Board(b)
         board.solve(deepcopy(board._board), depth=0)
