@@ -1,55 +1,61 @@
-function topR(a) {
-  return Number(a.substring(a.lastIndexOf(' ')).trim());
+function topDisk(a) {
+  return Number(a.substring(a.lastIndexOf(' '))); // top disk of a-rod
 }
 
-function belowR(b) {
-  return b.replace(topR(b),'').trim();
+function belowPart(b) {
+  return b.replace(' '+topDisk(b),'');  // remaining part of disks on b-rod after removing top one
 }
 
-function printRings(p, c1, c2, c3){
-  console.log("Phase "+p+":");
-  console.log("          "+c1.trim());
-  console.log("          "+c2.trim());
-  console.log("          "+c3.trim());
+function printRods(p, c1, c2, c3){
+  console.log("Phase "+p+":");   // print rods A B C
+  console.log("          |"+c1.trim());
+  console.log("          |"+c2.trim());
+  console.log("          |"+c3.trim());
   console.log(" ");
 }
 
 console.clear();
 
-var n = 8;  // number of rings, 9 is maximum!
+var n = 8;  // number of disks
 var A = "";
 var B = "";
 var C = "";
-var lastR = n;
+var tempDisk = "";
+var lastDisk = n;  // last moved disk to stop while loop
 
-while (1 <= n) {
-  A += ' '+n;
+while (n > 0) {
+  A += ' '+n;   // n disks for first rod
   n--;
 }
 
-var i = 1;
+A = A.trim();  // remove space in the beginning of the string to handel a bug with 10th disk
+
+var i = 1;  // limit for interactions in while loop below
 var arr = [A,B,C];
 
-while(i < 600 && lastR > 0){
-  if(lastR != topR(A) && topR(A) != 0 && topR(A) < topR(C) || topR(C) == 0 && lastR != topR(A)){
-    printRings(i, A, B, C);
-    lastR = topR(A);
-    C += " "+topR(A);
-    A = belowR(A);
+while(i < 1501 && Number(lastDisk) > 0){
+  // console.log(topDisk(A)+" "+topDisk(B)+" "+topDisk(C));  // uncomment this if you need to see disks rotation
+  if(lastDisk != topDisk(A) && topDisk(A) != 0 && topDisk(A) < topDisk(C) || topDisk(C) == 0 && lastDisk != topDisk(A)){
+    printRods(i, A, B, C);
+    lastDisk = topDisk(A);
+    C += " "+topDisk(A);  // moving disk from A to C
+    A = belowPart(A);
     i++;
   }
-  else if(lastR != topR(A) && topR(A) != 0 && topR(A) < topR(B) || topR(B) == 0 && lastR != topR(A)){
-    printRings(i, A, B, C);
-    lastR = topR(A);
-    B += " "+topR(A);
-    A = belowR(A);
+  else if(lastDisk != topDisk(A) && topDisk(A) != 0 && topDisk(A) < topDisk(B) || topDisk(B) == 0 && lastDisk != topDisk(A)){
+    printRods(i, A, B, C);
+    lastDisk = topDisk(A);
+    B += " "+topDisk(A);  // moving disk from A to B
+    A = belowPart(A);
     i++;
   }
   else{
-    var c = C;
+    printRods(i, A, B, C);
+    tempDisk = C;  // rotation of rods, shift to the right to one position
     C = B;
     B = A;
-    A = c;
+    A = tempDisk;
+    i++;
   }
   arr = [A,B,C];
 }
