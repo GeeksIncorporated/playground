@@ -52,6 +52,6 @@ L2.next.next = ListNode(4)
 s = Solution()
 L3 = s.addTwoNumbers(L1, L2)
 while L3:
-    print L3.val, "->",
+    print(L3.val, "->"),
     L3 = L3.next
-print "NULL"
+print ("NULL")

@@ -40,7 +40,6 @@ class Solution():
             (map(lambda x: int(-x),
                  self.ksmallest))))[1:k + 1]
 
-
 primes = (3, 5, 7)
 s = Solution()
 print(s.solve(primes, 30))

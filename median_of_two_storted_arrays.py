@@ -30,9 +30,9 @@ class Solution:
         if l == 1:
             return arr[0], 0
         if l % 2:
-            return arr[l / 2], l / 2
+            return arr[int(l / 2)], int(l / 2)
         else:
-            return (arr[l / 2 - 1] + arr[l / 2]) / 2.0, l / 2
+            return (arr[int(l / 2) - 1] + arr[int(l / 2)]) / 2.0, int(l / 2)
 
     def findMedianSortedArrays(self, A, B):
 
@@ -63,12 +63,12 @@ class Solution:
 
 s = Solution()
 
-# print s.findMedianSortedArrays([], [20])
-print s.findMedianSortedArrays([1, 4, 5], [2, 3])
-# print s.findMedianSortedArrays(
-#     [-50, -41, -40, -19, 5, 21, 28],
-#     [-50, -21, -10])
+print(s.findMedianSortedArrays([], [20]))
+print(s.findMedianSortedArrays([1, 4, 5], [2, 3]))
+print(s.findMedianSortedArrays(
+     [-50, -41, -40, -19, 5, 21, 28],
+     [-50, -21, -10]))
 
-print s.findMedianSortedArrays(
+print(s.findMedianSortedArrays(
     [-50, -47, -36, -35, 0, 13, 14, 16],
-    [-31, 1, 9, 23, 30, 39])
+    [-31, 1, 9, 23, 30, 39]))

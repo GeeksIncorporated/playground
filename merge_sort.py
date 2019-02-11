@@ -23,4 +23,4 @@ def msort(A):
     return results
 
 
-print msort([random.randint(1, 100) for x in range(100)])
+print(msort([random.randint(1, 100) for x in range(100)]))
