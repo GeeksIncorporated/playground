@@ -3,7 +3,7 @@ function topDisk(a) {
 }
 
 function belowPart(b) {
-    return b.replace(' ' + topDisk(b), '');  // remaining part of disks on b-rod after removing top one
+    return b.substring(0, b.lastIndexOf(' '));  // remaining part of disks on b-rod after removing top one
 }
 
 function printRods(p, c1, c2, c3) {
@@ -28,12 +28,10 @@ function main(n) {
         n--;
     }
 
-    A = A.trim();  // remove space in the beginning of the string to handel a bug with 10th disk
-
-    var i = 1;  // limit for interactions in while loop below
+    var i = 1;  // limit for iterations in while loop below
     var arr = [A, B, C];
 
-    while (i < 1501 && Number(lastDisk) > 0) {
+    while (i < 2500 && Number(lastDisk) > 0) {
         // console.log(topDisk(A)+" "+topDisk(B)+" "+topDisk(C));  // uncomment this if you need to see disks rotation
         if (lastDisk != topDisk(A) && topDisk(A) != 0 && topDisk(A) < topDisk(C) || topDisk(C) == 0 && lastDisk != topDisk(A)) {
             printRods(i, A, B, C);
