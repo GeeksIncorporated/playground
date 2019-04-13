@@ -41,7 +41,7 @@ class Board(object):
         self.cols = 9
         self.inprocess = False
         self.opened_nums = board.count('0')
-        self._board = [map(int, line)
+        self._board = [list(map(int, line))
                        for line in [board[9 * i:9 * i + 9]
                                     for i in range(9)]]
         print(str(self._board))

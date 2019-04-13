@@ -1,7 +1,7 @@
 import sys
 from collections import defaultdict
 
-min_length = sys.maxint
+min_length = sys.maxsize
 
 
 def min_covering_subs(A, Q):
@@ -25,7 +25,7 @@ def min_covering_subs(A, Q):
             # store result if A[l: r+1] is shorter than seen before
             if min_length > r - l:
                 min_length = r - l
-                result = A[l:r+1]
+                result = A[l:r + 1]
 
             # if leftmost word is covered decrease it's counter
             if A[l] in Q:
@@ -40,6 +40,8 @@ def min_covering_subs(A, Q):
 
     return result
 
-a = "good we the champions so the we good are we the champions we are the".split(" ")
+
+a = "good we the champions so the we good are we the champions " \
+    "we are the".split(" ")
 q = "we are the champions".split(" ")
-print min_covering_subs(a, q)
+print(min_covering_subs(a, q))

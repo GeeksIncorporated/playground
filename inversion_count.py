@@ -23,5 +23,5 @@ def inv_count(A):
     results += r[j:]
     return results
 
-print inv_count([3,2,4,1,0])
-print counter
+print(inv_count([3,2,4,1,0]))
+print(counter)

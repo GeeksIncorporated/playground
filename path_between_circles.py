@@ -1,3 +1,9 @@
+# https://www.interviewbit.com/problems/valid-path/
+# There is a rectangle with left bottom as  (0, 0) and right up as (x, y). There are N circles such that their centers are inside the rectangle.
+# Radius of each circle is R. Now we need to find out if it is possible that we can move from (0, 0) to (x, y) without touching any circle.
+#
+# Note : We can move from any cell to any of its 8 adjecent neighbours and we cannot move outside the boundary of the rectangle at any point of time.
+
 class Solution:
     # @param A : x
     # @param B : y
@@ -10,6 +16,7 @@ class Solution:
     seen_cells = {}
 
     def is_valid(self, cell):
+        # to not recalculate many times
         if cell in self.seen_cells:
             return self.seen_cells[cell]
         x, y = cell
@@ -38,11 +45,11 @@ class Solution:
             moves.remove(cell)
         return moves
 
-    def solve(self, A, B, C, D, E, F):
+    def solve(self, A, B, C, R, E, F):
         self.A = A
         self.B = B
-        self.R = D
-        self.circle_centers = zip(E, F)
+        self.R = R
+        self.circle_centers = list(zip(E, F))
         visited = set()
 
         def dfs(cell, target):
@@ -63,8 +70,8 @@ class Solution:
 A = 7
 B = 91
 C = 8
-D = 7
-E = [8, 1,  7,  1,  7, 1, 5, 1, 6]
-F = [8, 25, 4, 74, 14, 90, 58, 37, 4]
+R = 7
+E = [1,  7,  1,  7, 1, 5, 1, 6]
+F = [25, 4, 74, 14, 90, 58, 37, 4]
 s = Solution()
-print s.solve(A, B, C, D, E, F)
+print(s.solve(A, B, C, R, E, F))

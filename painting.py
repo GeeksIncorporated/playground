@@ -36,6 +36,6 @@ def recolor(arr, x, y):
 
 pprint.pprint(arr1)
 recolor(arr1, 8, 0)
-print
+print()
 pprint.pprint(arr1)
-print counter
+print(counter)

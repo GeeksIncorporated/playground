@@ -1,7 +1,8 @@
 # https://www.interviewbit.com/problems/palindrome-partitioning-ii/
 # Palindrome Partitioning II
 #
-# Given a string s, partition s such that every substring of the partition is a palindrome.
+# Given a string s, partition s such that every substring of the partition
+# is a palindrome.
 #
 # Return the minimum cuts needed for a palindrome partitioning of s.
 #
@@ -25,12 +26,11 @@ class Solution:
             if i in cache:
                 return cache[i]
 
-            if i == len(A) or \
-                self.is_palindrome(A[i:]):
+            if i == len(A) or self.is_palindrome(A[i:]):
                 min_cuts = 0
             else:
                 min_cuts = len(A)
-                for j in xrange(i + 1, len(A)):
+                for j in range(i + 1, len(A)):
                     word = A[i:j]
                     if self.is_palindrome(word):
                         min_cuts = min(min_cuts, 1 + solve(j))

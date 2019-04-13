@@ -1,88 +1,64 @@
 # Definition for a  binary tree node
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
-from Queue import Queue
+from queue import Queue
 
+
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+MAX_SUM = -1 << 32
 
 class Solution:
     # @param A : root node of tree
     # @return an integer
 
-    def lca(self, parents, n1, n2):
-        path1 = []
-        path2 = []
-        while n1:
-            path1.append(n1)
-            n1 = parents[n1]
+    T = None
 
-        while n2:
-            path2.append(n2)
-            n2 = parents[n2]
+    def build_binary_tree_from_level_order(self, A):
+        q = Queue()
+        self.T = TreeNode(A[0])
+        q.put(self.T)
+        i = 0
+        while not q.empty():
+            node = q.get()
+            i += 1
+            if i < len(A):
+                node.left = TreeNode(A[i])
+                q.put(node.left)
+            i += 1
 
-        return list(set(path1).intersection(set(path2)))[-1]
+            if i < len(A):
+                node.right = TreeNode(A[i])
+                q.put(node.right)
 
     def maxPathSum(self, A):
 
-        parents = {A: None}
-        path_sum = {}
+        def solve(A):
+            global MAX_SUM
 
-        q = []
-        q.append(A)
-        path_sum[A] = A.val
+            if not A:
+                return -1 << 32
 
-        while q:
-            node = q.pop()
+            # leaf
+            if not A.left and not A.right:
+                return A.val
 
-            if node.left:
-                parents[node.left] = node
-                path_sum[node.left] = path_sum[node] + node.left.val
-                q.append(node.left)
+            lt = solve(A.left)
+            rt = solve(A.right)
+            MAX_SUM = max(MAX_SUM, A.val, lt, rt, lt+A.val, rt+A.val, lt + rt + A.val)
+            return max(lt, rt) + A.val
 
-            if node.right:
-                parents[node.right] = node
-                path_sum[node.right] = path_sum[node] + node.right.val
-                q.append(node.right)
-
-        print path_sum
-        max_ps = -1000000
-        nodes = parents.keys()
-        for i, node1 in enumerate(nodes):
-            for node2 in nodes[i:]:
-                if node1 == node2:
-                    ps = node1.val
-                else:
-                    lca = self.lca(parents, node1, node2)
-                    ps = path_sum[node1] + path_sum[node2] - 2 * lca.val
-                if ps > max_ps:
-                    max_ps = ps
-        return max_ps
+        solve(A)
+        return MAX_SUM
 
 
-class Node:
-    def __init__(self, val):
-        self.val = val
-        self.left = None
-        self.right = None
-
-    def __repr__(self):
-        return str(self.val)
-
-
-root = Node(-100)
-q = Queue()
-q.put(root)
-root.left = Node(-200)
-root.right = Node(-300)
-root.left.left = Node(-400)
-# for i in xrange(1, 10, 2):
-#     node = q.get()
-#     node.left = Node(i + 1)
-#     node.right = Node(i + 2)
-#     q.put(node.left)
-#     q.put(node.right)
-
+T = "3 2 -1 -1"
 s = Solution()
-print s.maxPathSum(root)
+s.build_binary_tree_from_level_order(
+    list(map(int, T.split(' ')))
+)
+
+print(s.maxPathSum(s.T))
+

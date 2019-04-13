@@ -1,4 +1,5 @@
 import random
+import time
 
 
 def msort(A):
@@ -22,5 +23,9 @@ def msort(A):
     results += r[j:]
     return results
 
-
-print(msort([random.randint(1, 100) for x in range(100)]))
+A = [random.randint(1, 10) for x in range(1000)]
+print(A)
+st = time.time()
+A = msort(A)
+print(A)
+print(time.time() - st)

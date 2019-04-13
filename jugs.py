@@ -11,7 +11,7 @@ solution = []
 def solve(jugs, constraints):
     if constraints[0] > required_constraint[0] and \
                     constraints[1] < required_constraint[1]:
-        print solution
+        print(solution)
 
     elif constraints[1] > required_constraint[1]:
         return False

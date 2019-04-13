@@ -8,9 +8,9 @@ def check_perfect_square(n):
 
 def solve(doors):
     counter = 0
-    for i in xrange(1, len(doors)):
+    for i in range(1, len(doors)):
         if check_perfect_square(i):
             counter += 1
     return counter
 
-print solve(doors)
+print(solve(doors))

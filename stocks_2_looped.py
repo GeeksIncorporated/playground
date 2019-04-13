@@ -1,9 +1,14 @@
 # https://www.interviewbit.com/problems/best-time-to-buy-and-sell-stocks-ii/
 # Best Time to Buy and Sell Stocks II
 #
-# Say you have an array for which the ith element is the price of a given stock on day i.
+# Say you have an array for which the ith element is the price of a
+# given stock on day i.
 #
-# Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
+# Design an algorithm to find the maximum profit.
+# You may complete as many transactions as you like
+# (ie, buy one and sell one share of the stock multiple times).
+# However, you may not engage in multiple transactions
+# at the same time (ie, you must sell the stock before you buy again).
 #
 # Example :
 #
@@ -72,7 +77,7 @@ A = [7551982, 8124939, 4023780, 7868369, 4412570, 2542961, 7380261, 1164290,
 s = Solution()
 st = time.time()
 assert s.maxProfit(A) == 552236226
-print time.time() - st
+print(time.time() - st)
 
 A = [4194445, 5755801, 2855639, 4681951, 642183, 9606207, 6539770, 2929563,
      2371075, 2065991, 4734767, 3035028, 9844237, 9859030, 5366228, 7126800,
@@ -157,4 +162,4 @@ A = [4194445, 5755801, 2855639, 4681951, 642183, 9606207, 6539770, 2929563,
 st = time.time()
 s = Solution()
 assert s.maxProfit(A) == 1057826940
-print time.time() - st
+print(time.time() - st)

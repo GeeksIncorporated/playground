@@ -34,5 +34,5 @@ characters = {
 for c in characters:
     pq.put((characters[c], c))
 
-for i in xrange(26):
-    print pq.get()
+for i in range(26):
+    print(pq.get())

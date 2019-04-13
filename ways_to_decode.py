@@ -24,21 +24,27 @@ class Solution:
     # @param A : string
     # @return an integer
     def numDecodings(self, A):
-        codes = dict(zip(map(str, xrange(1, 27)), string.ascii_uppercase))
+        codes = dict(zip(map(str, range(1, 27)), string.ascii_uppercase))
+
         def solve(A):
             if not A:
                 return 1
             r = 0
-            for i in xrange(len(A)):
+            for i in range(len(A)):
                 word = A[:i + 1]
                 if word in codes:
                     r += solve(A[i + 1:])
                 else:
                     break
             return r
+
         return solve(A)
+
 
 s = Solution()
 assert s.numDecodings("12") == 2
 assert s.numDecodings("123") == 3
-assert s.numDecodings("176408398756895") == 0
+assert s.numDecodings("17601") == 0
+# assert s.numDecodings("17641839875689512341234123") == 4
+print(s.numDecodings("17641839875689512341234123"))
+

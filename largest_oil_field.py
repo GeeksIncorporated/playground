@@ -56,8 +56,8 @@ def dfs(node):
 visited = set()
 field_size = 0
 
-for i in xrange(len(M)):
-    for j in xrange(len(M)):
+for i in range(len(M)):
+    for j in range(len(M)):
 
         if M[i][j] == 0:  # No oil
             continue
@@ -67,5 +67,5 @@ for i in xrange(len(M)):
 
         field_size = max(field_size, dfs((i, j)))
 
-print field_size
+print(field_size)
 
