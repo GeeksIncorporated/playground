@@ -40,6 +40,7 @@ def all_columns_sum_differs(*table_vals):
 
     for i in range(10):
         sums.append(sum(FULL_MATRIX[i]))
+
     ss = len(set(sums))
     p = MAX_SO_FAR
     MAX_SO_FAR = max(MAX_SO_FAR, ss)
@@ -49,9 +50,15 @@ def all_columns_sum_differs(*table_vals):
     return ss == 9
 
 
-for pair in UPPER_MATRIX_INDECES:
-    pr.addVariable(pair, [0, 1])
+def total_handshakes_num_smaller_than_22(*vals):
+    return sum(vals) < 23
 
+
+for pair in UPPER_MATRIX_INDECES:
+    pr.addVariable(pair, [1, 0])
+
+
+pr.addConstraint(total_handshakes_num_smaller_than_22)
 pr.addConstraint(all_columns_sum_differs)
 
 for s in pr.getSolutions():
