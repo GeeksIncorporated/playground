@@ -36,3 +36,4 @@ api/php/c.php
 api/java/Test.java
 src/util/test_sorted_set
 .idea/*
+/venv/
