@@ -33,4 +33,4 @@ class Solution:
 
 
 s = Solution()
-print(s.findMinXor([0, 2, 5, 7]))
+print((s.findMinXor([0, 2, 5, 7])))

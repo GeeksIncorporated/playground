@@ -189,7 +189,7 @@ def solve_sudoku(H):
         for candidate in range(1, N+1):
             if not is_valid(x, y, candidate):
                 continue
-            print(CELLS[(2, 5)])
+            print((CELLS[(2, 5)]))
             if init_board[x][y]:
                 continue
             checked += 1
@@ -520,6 +520,6 @@ if __name__ == "__main__":
         st = time.time()
         solve_sudoku()
         pprint.pprint(board)
-        print("Took", time.time() - st, "sec")
-        print("Numbers tried:", checked)
+        print(("Took", time.time() - st, "sec"))
+        print(("Numbers tried:", checked))
         time.sleep(1)

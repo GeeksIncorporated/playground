@@ -16,7 +16,7 @@ def solve(jugs, constraints):
     elif constraints[1] > required_constraint[1]:
         return False
 
-    for j, cj in jugs.items():
+    for j, cj in list(jugs.items()):
         # make a guess
         solution.append(j)
         solve(jugs, (constraints[0] +cj[0], constraints[1] +cj[1]))

@@ -47,8 +47,8 @@ def f7():
 # Counting and printing the distribution to
 # visually confirm the almost-equality
 counters = defaultdict(int)
-for i in xrange(10000):
+for i in range(10000):
     r = f7()
     counters[r] += 1
 
-print counters
+print(counters)

@@ -10,7 +10,7 @@ class Solution:
         return steps
 
     def coverPoints(self, X, Y):
-        points = zip(X, Y)
+        points = list(zip(X, Y))
         start = list(points[0])
         steps = 0
         for point in points[1:]:
@@ -19,4 +19,4 @@ class Solution:
         return steps
 
 s = Solution()
-print s.coverPoints([0, 3], [0, 5])
+print(s.coverPoints([0, 3], [0, 5]))

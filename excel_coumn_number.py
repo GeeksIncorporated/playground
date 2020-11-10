@@ -14,4 +14,4 @@ class Solution:
         return n
 
 s = Solution()
-print s.titleToNumber('AB')
+print(s.titleToNumber('AB'))

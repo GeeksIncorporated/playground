@@ -56,7 +56,7 @@ x2 = 8
 y2 = 8
 
 s = Solution()
-print(s.knight(N, M, x1, y1, x2, y2))
+print((s.knight(N, M, x1, y1, x2, y2)))
 
 N = 2
 M = 20
@@ -66,4 +66,4 @@ x2 = 1
 y2 = 5
 
 s = Solution()
-print(s.knight(N, M, x1, y1, x2, y2))
+print((s.knight(N, M, x1, y1, x2, y2)))

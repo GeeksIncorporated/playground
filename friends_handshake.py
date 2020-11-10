@@ -2,14 +2,14 @@
 from pprint import pprint
 import constraint
 
-PAIRS = list(zip(range(0, 10, 2), range(1, 10, 2)))
-PAIRS += list(map(lambda p: (p[1], p[0]), PAIRS))
+PAIRS = list(zip(list(range(0, 10, 2)), list(range(1, 10, 2))))
+PAIRS += list([(p[1], p[0]) for p in PAIRS])
 TABLE = [[0 for i in range(10)] for j in range(10)]
 
 
 def get_upper_matrix_indeces():
     pr = constraint.Problem()
-    pr.addVariables('ij', range(10))
+    pr.addVariables('ij', list(range(10)))
     pr.addConstraint(lambda i, j: i < j)
     pr.addConstraint(lambda i, j: (i, j) not in PAIRS)
     res = []
@@ -45,7 +45,7 @@ def all_columns_sum_differs(*table_vals):
     p = MAX_SO_FAR
     MAX_SO_FAR = max(MAX_SO_FAR, ss)
     if p != MAX_SO_FAR:
-        print(MAX_SO_FAR, ss)
+        print((MAX_SO_FAR, ss))
         pprint(FULL_MATRIX)
     return ss == 9
 

@@ -70,6 +70,6 @@ class Solution:
 
 
 s = Solution()
-print s.solve([0, 1, 2, 3, 4, 5, 7, 8, 9],
+print(s.solve([0, 1, 2, 3, 4, 5, 7, 8, 9],
               5,
-              51822)
+              51822))

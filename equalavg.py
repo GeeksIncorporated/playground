@@ -26,4 +26,4 @@ class Solution:
 
 s = Solution()
 # print s.avgset([1, 7, 15, 29, 11, 9])
-print s.avgset([1, 2, 3])
+print(s.avgset([1, 2, 3]))

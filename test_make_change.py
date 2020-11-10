@@ -13,7 +13,7 @@ class MyTestCase(unittest.TestCase):
         total = sum (self.change)
 
         if total == n:
-            print self.change
+            print(self.change)
             self.good_results.add(str(sorted(self.change)))
             self.change.pop(0)
             return 1
@@ -42,8 +42,8 @@ class MyTestCase(unittest.TestCase):
         for c in coins:
             coins_large.extend([c] * (n / c))
         self.make_change(coins_large, n)
-        print len(self.good_results), self.good_results
-        print self.cache
+        print(len(self.good_results), self.good_results)
+        print(self.cache)
 
 
 if __name__ == '__main__':

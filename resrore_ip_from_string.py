@@ -16,7 +16,7 @@ class Solution:
                 self.ips.append(copy.copy(self.ip))
                 return
 
-            for i in xrange(1, len(A) + 1):
+            for i in range(1, len(A) + 1):
                 if A[0] == '0' and i > 1:
                     return
                 else:
@@ -30,4 +30,4 @@ class Solution:
         return [".".join(ip) for ip in sorted(self.ips)]
 
 s = Solution()
-print s.restoreIpAddresses("0100100")
+print(s.restoreIpAddresses("0100100"))

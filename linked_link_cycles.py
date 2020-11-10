@@ -4,36 +4,36 @@ class Solution:
 
     def get_cycle_length(self, slow, fast):
         length = 1
-        slow = slow.next
+        slow = slow.__next__
         while slow != fast:
-            slow = slow.next
+            slow = slow.__next__
             length += 1
         return length
 
     def detectCycle(self, A):
 
-        if not A or not A.next:
+        if not A or not A.__next__:
             return None
 
         slow = fast = A
-        fast = fast.next
+        fast = fast.__next__
         while slow:
-            print slow, fast
+            print(slow, fast)
             if slow == fast:
                 cycle_length = self.get_cycle_length(slow, fast)
-                print "--", cycle_length
+                print("--", cycle_length)
                 slow = fast = A
                 for i in range(cycle_length):
-                    fast = fast.next
+                    fast = fast.__next__
                 while slow != fast:
-                    slow = slow.next
-                    fast = fast.next
+                    slow = slow.__next__
+                    fast = fast.__next__
                 return slow
 
-            slow = slow.next
+            slow = slow.__next__
 
-            if fast.next and fast.next.next:
-                fast = fast.next.next
+            if fast.__next__ and fast.next.__next__:
+                fast = fast.next.__next__
             else:
                 return
 
@@ -46,7 +46,7 @@ class Node():
         return str(self.val)
 
 s = Solution()
-input = map(int, "1 2 3 4 5 2".split(' '))
+input = list(map(int, "1 2 3 4 5 2".split(' ')))
 
 
 nodes = {}
@@ -59,8 +59,8 @@ for i in range(1, len(input)):
     else:
         next = Node(input[i])
         nodes[str(next)] = next
-    print "--X", prev, next
+    print("--X", prev, next)
     prev.next = next
     prev = next
 
-print s.detectCycle(st)
+print(s.detectCycle(st))

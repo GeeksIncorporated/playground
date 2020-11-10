@@ -75,13 +75,13 @@ class Solution:
 solution = Solution()
 st = time.time()
 for i in range(1, 1000):
-    A = [random.choice(range(100)) for i in range(i)]
+    A = [random.choice(list(range(100))) for i in range(i)]
     Solution.counter = 0
     r = solution.solve(A)
-    print(r, Solution.counter, Solution.counter / int(r))
-print(time.time() - st)
+    print((r, Solution.counter, Solution.counter / int(r)))
+print((time.time() - st))
 
 A = [6, 2, 5, 4, 5, 20, 6, 4, 3]
 Solution.counter = 0
 r = solution.solve(A)
-print(r, Solution.counter, Solution.counter / int(r))
+print((r, Solution.counter, Solution.counter / int(r)))

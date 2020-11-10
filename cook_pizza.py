@@ -6,7 +6,7 @@ h = []
 
 
 def cook_pizza(orders_to_cooking_time):
-    for k, v in orders_to_cooking_time.items():
+    for k, v in list(orders_to_cooking_time.items()):
         if type(v) is not list:
             orders_to_cooking_time[k] = [v]
 
@@ -18,7 +18,7 @@ def cook_pizza(orders_to_cooking_time):
             last_et += pt
             total_waiting_time += last_et - ot
 
-            new_orders_times = filter(lambda o: o < last_et, sorted_orders)
+            new_orders_times = [o for o in sorted_orders if o < last_et]
 
             for new_ot in new_orders_times:
 
@@ -59,10 +59,10 @@ for line in open("cook_pizza_test_input"):
     if c:
         c = False
         continue
-    ot, pt = map(int, line.strip().split(" "))
+    ot, pt = list(map(int, line.strip().split(" ")))
     orders[ot].append(pt)
 
 r = cook_pizza(orders)
-print(r, 16673945929151)
+print((r, 16673945929151))
 # assert r == 16673945929151, "Test: 3"
 

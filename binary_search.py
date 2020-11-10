@@ -16,9 +16,9 @@ def bs1(arr, x):
 
     return None
 
-arr = range(100)
+arr = list(range(100))
 for i in range(100):
     x = random.randint(1, 99)
     r1 = bs1(arr, x)
-    print x, r1
+    print(x, r1)
     assert r1 == x

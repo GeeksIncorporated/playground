@@ -43,7 +43,7 @@ def find_largest_connected_group(pairs):
     # populates connected_groups
     # by starting dfs for each 
     # unvisited item
-    for item in G.keys():
+    for item in list(G.keys()):
         if item not in visited:
             dfs(item, [])
 
@@ -57,6 +57,6 @@ def find_largest_connected_group(pairs):
     return max_group
 
 
-print(find_largest_connected_group(
+print((find_largest_connected_group(
     [[1, 2], [1, 3], [2, 4], [3, 5], [6, 7]]
-))
+)))

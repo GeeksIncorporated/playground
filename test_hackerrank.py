@@ -53,7 +53,7 @@ find hak""".split("\n")
                 current_dict["__end__"] = "$"
 
             if n % 1000 == 0:
-                print n
+                print(n)
             n += 1
 
             if op == "find":
@@ -67,9 +67,9 @@ find hak""".split("\n")
 
     def validate_result(self, expected, res):
         l = min(len(res), len(expected))
-        for i in xrange(l):
+        for i in range(l):
             self.assertEqual(str(res[i]), expected[i])
-        print "Done"
+        print("Done")
 
 
 if __name__ == '__main__':

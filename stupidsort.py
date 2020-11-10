@@ -32,5 +32,5 @@ n = 100
 arr = [random.randint(0, n) for i in range(n)]
 
 st = time.time()
-print(stupid_sort(arr))
-print(time.time() - st)
+print((stupid_sort(arr)))
+print((time.time() - st))

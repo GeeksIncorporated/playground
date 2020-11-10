@@ -11,7 +11,7 @@ def mazgan(A, max_closed_in_a_row):
     cache = defaultdict(int)
     opened = defaultdict(int)
 
-    print("In:", max_closed_in_a_row, A)
+    print(("In:", max_closed_in_a_row, A))
 
     if max_closed_in_a_row == 1:
         return (sum(A), A)
@@ -69,7 +69,7 @@ def mazgan(A, max_closed_in_a_row):
     # filter the indeces dict by positive values (those hours when was opened
     # more times than closed)
     indeces_with_positive_counters = [
-        k for k, v in opened.items() if v > 0]
+        k for k, v in list(opened.items()) if v > 0]
     return integral, indeces_with_positive_counters
 
 
@@ -96,5 +96,5 @@ assert mazgan(A, 3) == (13, [0, 1, 2, 3, 6])
 st = time.time()
 A = [random.randint(0, 10) for i in range(1000)]
 time_left_till_forced_opened = random.randint(1, len(A) / 2)
-print(mazgan(A, time_left_till_forced_opened))
-print(time.time() - st)
+print((mazgan(A, time_left_till_forced_opened)))
+print((time.time() - st))

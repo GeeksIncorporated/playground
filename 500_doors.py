@@ -13,4 +13,4 @@ def solve(doors):
             counter += 1
     return counter
 
-print(solve(doors))
+print((solve(doors)))

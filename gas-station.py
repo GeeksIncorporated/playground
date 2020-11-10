@@ -44,4 +44,4 @@ class Solution:
 gas = [1, 2]
 cost = [2, 1]
 s = Solution()
-print(s.canCompleteCircuit(gas, cost))
+print((s.canCompleteCircuit(gas, cost)))

@@ -38,3 +38,6 @@ src/util/test_sorted_set
 .idea/*
 /venv/
 .history
+.vscode/settings.json
+.vscode/launch.json
+.vscode/PythonImportHelper-v2-Completion.json

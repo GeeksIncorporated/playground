@@ -50,19 +50,19 @@ def scale(param_name, generator):
                 st = time.time()
                 foo(*args, **kwargs)
                 end = time.time() - st
-                print end
+                print(end)
                 y.append(end)
 
             y = np.array(y)
             y = y[abs(y - np.mean(y)) < np.std(y)]
-            x = xrange(len(y))
+            x = range(len(y))
 
             def fit(foo):
                 popt, pcov = curve_fit(foo, x, y)
                 res = foo(x, *popt)
                 ss_res = np.sum(np.power((y - res), 2))
                 ss_tot = np.sum(np.power(y - np.mean(y), 2))
-                print str(foo).split(" ")[1], "%.2f" % (1 - (ss_res / ss_tot)), popt, np.diag(pcov)
+                print(str(foo).split(" ")[1], "%.2f" % (1 - (ss_res / ss_tot)), popt, np.diag(pcov))
                 plt.plot(res, '.')
                 plt.show()
 
@@ -81,23 +81,23 @@ def scale(param_name, generator):
     return decorator
 
 
-@scale("n", xrange(10, 25))
+@scale("n", range(10, 25))
 def test(n):
     res = []
     # if n < 0:
     #     return 1
     # return test(n-1) + test(n-2)
 
-    for i in xrange(n**2):
+    for i in range(n**2):
         res.append(i)
 
-@scale("n", xrange(10, 5000))
+@scale("n", range(10, 5000))
 def testA(n):
     res = []
     # if n < 0:
     #     return 1
     # return test(n-1) + test(n-2)
 
-    return sorted(xrange(n))
+    return sorted(range(n))
 
 testA(1000)

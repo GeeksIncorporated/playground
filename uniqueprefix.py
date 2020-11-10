@@ -41,7 +41,7 @@ class Solution:
         return res
 
 s = Solution()
-print s.prefix(["v", "rr", "lj", "tnsnfwzqfj", "afadr", "wsofsbcnuv", "hffbsaq", "wp", "cb", "cehch"])
+print(s.prefix(["v", "rr", "lj", "tnsnfwzqfj", "afadr", "wsofsbcnuv", "hffbsaq", "wp", "cb", "cehch"]))
 
 
 

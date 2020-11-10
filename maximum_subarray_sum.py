@@ -10,4 +10,4 @@ def max_subarray(A):
 
 
 A = [431, -15, 639, 342, -14, 565, -924, 635, 167, -70]
-print max_subarray(A)
+print(max_subarray(A))

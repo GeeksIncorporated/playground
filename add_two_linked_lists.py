@@ -34,11 +34,11 @@ class Solution:
             s = a + b + res
             C.val = s % 10
             res = s / 10
-            A = A.next if A else None
-            B = B.next if B else None
+            A = A.__next__ if A else None
+            B = B.__next__ if B else None
             if A or B or res:
                 C.next = ListNode(0)
-                C = C.next
+                C = C.__next__
 
         return rC
 
@@ -52,6 +52,6 @@ L2.next.next = ListNode(4)
 s = Solution()
 L3 = s.addTwoNumbers(L1, L2)
 while L3:
-    print(L3.val, "->"),
-    L3 = L3.next
+    print((L3.val, "->"), end=' ')
+    L3 = L3.__next__
 print ("NULL")

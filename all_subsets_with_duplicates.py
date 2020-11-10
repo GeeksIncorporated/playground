@@ -45,7 +45,7 @@ class Solution:
 A = [1, 2, 2]
 s = Solution()
 for ss in s.subsetsWithDup(A):
-    print ss
+    print(ss)
 
 # The solution on the website seems much better:
 #

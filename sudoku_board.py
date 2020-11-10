@@ -36,8 +36,8 @@ class Board(object):
         return candidates
 
     def display(self, board):
-        print(pformat(board), self.iters)
-        print(multiprocessing.current_process().pid)
+        print((pformat(board), self.iters))
+        print((multiprocessing.current_process().pid))
         # render text
 
     #     for i in range(9):
@@ -72,7 +72,7 @@ class Board(object):
         if not sorted_cands:
             self.display(board)
             self._solved_board = deepcopy(board)
-            print("------------------------", time.time() - self.st)
+            print(("------------------------", time.time() - self.st))
             return True
 
         r = sorted(sorted_cands)

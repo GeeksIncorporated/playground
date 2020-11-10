@@ -2,7 +2,7 @@ import pprint
 
 import numpy as np
 
-print np.random.randint(5, size=(5, 5))
+print(np.random.randint(5, size=(5, 5)))
 
 M1 = [[1, 2, 3],
       [4, 5, 6],
@@ -60,5 +60,5 @@ def rotate(M):
 
 pprint.pprint(M3)
 rotate(M3)
-print
+print()
 pprint.pprint(M3)

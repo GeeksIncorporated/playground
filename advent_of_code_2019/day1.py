@@ -119,7 +119,7 @@ def solve(mass):
     return math.floor(int(mass) / 3) - 2
 
 
-print(sum(map(solve, masses)))
+print((sum(map(solve, masses))))
 
 
 def solve2(mass):
@@ -134,4 +134,4 @@ assert solve2(14) == 2
 assert solve2(1969) == 966
 assert solve2(100756) == 50346
 
-print(sum(map(solve2, masses)))
+print((sum(map(solve2, masses))))

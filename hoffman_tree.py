@@ -1,4 +1,4 @@
-from Queue import PriorityQueue
+from queue import PriorityQueue
 
 pq = PriorityQueue()
 
@@ -35,4 +35,4 @@ for c in characters:
     pq.put((characters[c], c))
 
 for i in range(26):
-    print(pq.get())
+    print((pq.get()))

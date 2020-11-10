@@ -19,7 +19,7 @@ SERIES = 5
 def gambling(stage, bet, money, pattern, result):
     while stage > 0:
 
-        print(stage, bet, money, pattern, result)
+        print((stage, bet, money, pattern, result))
 
         if result == "black":
             if pattern == SERIES:
@@ -47,4 +47,4 @@ def gambling(stage, bet, money, pattern, result):
         result = roulette_wheel()
 
 
-print(gambling(1000000, 1, 100, 0, "zero"))
+print((gambling(1000000, 1, 100, 0, "zero")))

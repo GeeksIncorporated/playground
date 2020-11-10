@@ -20,10 +20,10 @@ def fib(n):
 N = 50
 USE_CACHE = True
 st = time.time()
-print(fib(N))
-print(time.time() - st)
+print((fib(N)))
+print((time.time() - st))
 
 USE_CACHE = False
 st = time.time()
-print(fib(N))
-print(time.time() - st)
+print((fib(N)))
+print((time.time() - st))

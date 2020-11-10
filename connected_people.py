@@ -5,7 +5,7 @@ Find the minimal connections between 2 diffrent people,
 to get them "know" each other.
 """
 
-from Queue import Queue
+from queue import Queue
 from collections import defaultdict
 from pprint import pprint
 
@@ -95,10 +95,10 @@ def solve(person1, person2):
 	# Restoring the whole path
     p = person2
     connection = []
-    for i in xrange(res + 1):
+    for i in range(res + 1):
         connection.append(p)
         p = parent[p]
-    print "%s connections between %s and %s:" % (res, person1, person2)
+    print("%s connections between %s and %s:" % (res, person1, person2))
     pprint(list(reversed(connection)))
 
 

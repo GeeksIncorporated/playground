@@ -80,4 +80,4 @@ for a in arr:
     tree.create(a)
 
 assert levelOrder(tree.root) == list(map(str, arr))
-print(levelOrder(tree.root))
+print((levelOrder(tree.root)))

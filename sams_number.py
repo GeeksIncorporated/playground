@@ -10,18 +10,18 @@ def solve(s, m, d):
     if s == 0:
         if not path:
             return
-        mins = min(path + [sys.maxint])
+        mins = min(path + [sys.maxsize])
         maxs = max(path + [0])
 
         if maxs - mins <= d:
             n += 1
-            print n, path
+            print(n, path)
         return
 
     if s < 0:
         return
 
-    for i in xrange(1, m + 1):
+    for i in range(1, m + 1):
         if s < i:
             break
 

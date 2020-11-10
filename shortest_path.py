@@ -37,7 +37,7 @@ def shortest_path(start, end):
     if not pathes:
         return 100
 
-    print start, pathes
+    print(start, pathes)
     return 1 + min(pathes)
 
-print shortest_path((1, 0), (4, 4))
+print(shortest_path((1, 0), (4, 4)))

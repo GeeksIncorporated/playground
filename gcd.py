@@ -13,4 +13,4 @@ class Solution:
         return B
 
 s = Solution()
-print s.gcd(18, 9)
+print(s.gcd(18, 9))

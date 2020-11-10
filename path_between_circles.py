@@ -74,4 +74,4 @@ R = 7
 E = [1,  7,  1,  7, 1, 5, 1, 6]
 F = [25, 4, 74, 14, 90, 58, 37, 4]
 s = Solution()
-print(s.solve(A, B, C, R, E, F))
+print((s.solve(A, B, C, R, E, F)))

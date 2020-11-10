@@ -28,7 +28,7 @@ class Solution:
         self.seen_codes = set([0])
 
         def solve(code, A):
-            for i in xrange(A):
+            for i in range(A):
                 t = code ^ (1 << i)
                 if t in self.seen_codes:
                     continue
@@ -41,7 +41,7 @@ class Solution:
         return tuple(self.result)
 
 s = Solution()
-print s.grayCode(10)
+print(s.grayCode(10))
 
 # There is a dirty trick:
 #

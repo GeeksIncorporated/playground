@@ -44,7 +44,7 @@ class Board(object):
         self._board = [list(map(int, line))
                        for line in [board[9 * i:9 * i + 9]
                                     for i in range(9)]]
-        print(str(self._board))
+        print((str(self._board)))
         self._init_candidates()
         self.display(self._board)
 
@@ -92,7 +92,7 @@ class Board(object):
         return candidates
 
     def eliminate_cand(self, x, y, cand, board):
-        print(str(['--', x, y, cand]))
+        print((str(['--', x, y, cand])))
         for i in range(9):
             if board[i][y]:
                 continue
@@ -125,19 +125,19 @@ class Board(object):
                     Hs.discard((3 * block_x + i, 3 * block_y + j))
 
         heapq.heapify(H)
-        print(sorted(map(str, H)))
+        print((sorted(map(str, H))))
 
     def restore_cand(self, x, y, cand, board):
-        print(str(['++', x, y, cand]))
+        print((str(['++', x, y, cand])))
 
         for i in range(9):
             if board[i][y] or i == x:
-                print(1)
+                print((1))
                 continue
 
             self.cands[i][y].cands.add(cand)
             if (i, y) not in Hs:
-                print("_---------_%s,%s" % (self.cands[i][y], str(Hs)))
+                print(("_---------_%s,%s" % (self.cands[i][y], str(Hs))))
                 H.append(self.cands[i][y])
                 Hs.add((i, y))
 
@@ -165,7 +165,7 @@ class Board(object):
                     Hs.add((3 * block_x + i, 3 * block_y + j))
 
         heapq.heapify(H)
-        print(sorted(map(str,H)))
+        print((sorted(map(str,H))))
 
     def is_valid(self, x, y, number, board):
         for i in range(9):
@@ -187,7 +187,7 @@ class Board(object):
         return True
 
     def solve(self, board, depth):
-        print("0*** %s", depth)
+        print(("0*** %s", depth))
 
         if not len(H):
             if depth == self.opened_nums:
@@ -200,7 +200,7 @@ class Board(object):
         i = r.x
         j = r.y
         cands = r.cands
-        print(str(['@@', i, j, cands]))
+        print((str(['@@', i, j, cands])))
 
         for cand in list(cands):
             if not self.is_valid(i, j, cand, board):

@@ -67,7 +67,7 @@ def parse_grid(grid):
     return False if a contradiction is detected."""
     ## To start, every square can be any digit; then assign values from the grid.
     values = dict((s, digits) for s in squares)
-    for s,d in grid_values(grid).items():
+    for s,d in list(grid_values(grid).items()):
         if d in digits and not assign(values, s, d):
             return False ## (Fail if we can't assign d to square s.)
     return values
@@ -76,7 +76,7 @@ def grid_values(grid):
     "Convert grid into a dict of {square: char} with '0' or '.' for empties."
     chars = [c for c in grid if c in digits or c in '0.']
     assert len(chars) == 81
-    return dict(zip(squares, chars))
+    return dict(list(zip(squares, chars)))
 
 def solve(grid): return search(parse_grid(grid))
 
@@ -252,11 +252,11 @@ boards = [
 ]
 
 for board in boards:
-    board = [map(int, list(line)) for line in
-             [board[i:i + N] for i in xrange(0, len(board), N)]]
+    board = [list(map(int, list(line))) for line in
+             [board[i:i + N] for i in range(0, len(board), N)]]
     init_board = deepcopy(board)
 
-    print "SUDOKU PUZZLE:"
+    print("SUDOKU PUZZLE:")
     pprint.pprint(board)
     display(board)
     st = time.time()
@@ -264,5 +264,5 @@ for board in boards:
     init_heap(board)
 
     solve_sudoku(board)
-    print "Took", time.time() - st, "sec"
-    print "Numbers tried:", checked
+    print("Took", time.time() - st, "sec")
+    print("Numbers tried:", checked)

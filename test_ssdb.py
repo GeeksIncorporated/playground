@@ -12,10 +12,10 @@ class MyTestCase(unittest.TestCase):
         self.client.execute_command("auth", "1" * 32)
 
     def put_bulk(self, size):
-        keys = {str(uuid.uuid4()): i for i in xrange(size)}
+        keys = {str(uuid.uuid4()): i for i in range(size)}
         st = time.time()
         self.client.mset(**keys)
-        print time.time() - st
+        print(time.time() - st)
 
     def test_something(self):
         self.put_bulk(1000000)

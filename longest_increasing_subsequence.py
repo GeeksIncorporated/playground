@@ -17,4 +17,4 @@ def find_lis(arr):
 
 lis = find_lis(a)
 print(lis)
-print(len(lis))
+print((len(lis)))

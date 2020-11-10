@@ -86,11 +86,11 @@ def right_down(x, y):
     return n
 
 
-print left(4, 4)
-print right(4, 4)
-print up(4, 4)
-print down(4, 4)
-print left_down(4, 4)
-print left_up(4, 4)
-print right_up(4, 4)
-print right_down(4, 4)
+print(left(4, 4))
+print(right(4, 4))
+print(up(4, 4))
+print(down(4, 4))
+print(left_down(4, 4))
+print(left_up(4, 4))
+print(right_up(4, 4))
+print(right_down(4, 4))

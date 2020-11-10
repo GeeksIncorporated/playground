@@ -38,5 +38,5 @@ import time
 
 s = Solution()
 st = time.time()
-print s.climbStairs(30)
-print time.time() - st
+print((s.climbStairs(30)))
+print((time.time() - st))

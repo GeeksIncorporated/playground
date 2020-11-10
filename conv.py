@@ -23,8 +23,8 @@ for i in range(9):
     for j in range(9):
         masks[(i, j)] = ''.join(build_cross_mask(i, j))
 
-for k, v in masks.items():
-    print(k, v)
+for k, v in list(masks.items()):
+    print((k, v))
 
 N = 9
 board = "400006000" \
@@ -52,9 +52,9 @@ for i in range(9):
         x = int(number_masks[n], 2) ^ int(n_mask, 2)
         number_masks[n] = format(x, "081b")
 
-print(">>>> ", time.time() - st)
-print(masks[(1, 0)])
-print(number_masks[6])
+print((">>>> ", time.time() - st))
+print((masks[(1, 0)]))
+print((number_masks[6]))
 
 # Get minimum cell candidates
 st = time.time()
@@ -65,6 +65,6 @@ for i in range(9):
         cands[(i,j)] = [n for n in range(1, 10) if int(masks[(i, j)], 2) & int(number_masks[n], 2) == 0]
         if len(cands[(i,j)]) < min_cands_cell[0]:
             min_cands_cell = (len(cands[(i,j)]), i, j, cands[(i,j)])
-print(time.time() - st)
+print((time.time() - st))
 print(min_cands_cell)
 

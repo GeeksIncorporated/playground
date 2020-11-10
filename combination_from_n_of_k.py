@@ -55,4 +55,4 @@ class Solution:
 
 
 s = Solution()
-print s.combine(10, 2)
+print(s.combine(10, 2))

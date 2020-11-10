@@ -7,7 +7,7 @@ class Solution:
         while i < len(A)-1:
             local_res = []
             for j in range(i, len(A)):
-                print(i, j)
+                print((i, j))
                 if A[j] >= 0:
                     local_res.append(A[j])
                 else:
@@ -23,6 +23,6 @@ class Solution:
         return sorted(global_res, reverse=True)[0][3]
 
 s = Solution()
-print(s.maxset([ 1, 2, 5, -7, 2, 5 ]))
-print(s.maxset([ 756898537, -1973594324, -2038664370, -184803526, 1424268980 ]))
-print(s.maxset([ -317097467, 1376710097, 1330573317, 1687926652 ]))
+print((s.maxset([ 1, 2, 5, -7, 2, 5 ])))
+print((s.maxset([ 756898537, -1973594324, -2038664370, -184803526, 1424268980 ])))
+print((s.maxset([ -317097467, 1376710097, 1330573317, 1687926652 ])))

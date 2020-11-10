@@ -34,4 +34,4 @@ for i in range(10000):
     pf = primefactorization(i)
     res.append((len(pf), pf, i))
 
-print(list(reversed(sorted(res))))
+print((list(reversed(sorted(res)))))

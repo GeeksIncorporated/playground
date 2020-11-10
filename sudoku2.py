@@ -158,5 +158,5 @@ if __name__ == "__main__":
         st = time.time()
         pprint.pprint(board)
         dp(board, 0, 0, 1)
-        print("Took", time.time() - st, "sec")
+        print(("Took", time.time() - st, "sec"))
         time.sleep(1)

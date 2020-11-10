@@ -37,9 +37,8 @@ class Solution():
 
         dfs(1, k + 1)
         return sorted(set(
-            (map(lambda x: int(-x),
-                 self.ksmallest))))[1:k + 1]
+            ([int(-x) for x in self.ksmallest])))[1:k + 1]
 
 primes = (3, 5, 7)
 s = Solution()
-print(s.solve(primes, 30))
+print((s.solve(primes, 30)))

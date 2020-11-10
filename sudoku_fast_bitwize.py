@@ -127,13 +127,13 @@ class Board(object):
 
             for l in board:
                 print(l)
-            print(self.iters, time.time() - self.st)
+            print((self.iters, time.time() - self.st))
             time.sleep(1)
             return True
 
         if self.iters % 10000 == 0:
             self.display(board)
-            print(self.iters, time.time() - self.st)
+            print((self.iters, time.time() - self.st))
 
         # s = time.time()
         cands = defaultdict(list)

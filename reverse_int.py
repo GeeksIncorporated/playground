@@ -15,4 +15,4 @@ class Solution:
         return res
 
 sol = Solution()
-print sol.reverse(123)
+print(sol.reverse(123))

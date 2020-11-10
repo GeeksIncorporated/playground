@@ -30,4 +30,4 @@ class Solution:
 
 s = Solution()
 A = [3, -1, 2, 1, 2]
-print s.maxProfit(A)
+print(s.maxProfit(A))

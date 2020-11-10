@@ -10,9 +10,9 @@ import time
 
 def subarrays(l):
     res = set()
-    print l
-    for size in xrange(len(l)+1):
-        print size
+    print(l)
+    for size in range(len(l)+1):
+        print(size)
         for q in zip(*(l[i:] for i in range(size))):
             res.add(q)
     return res
@@ -23,14 +23,13 @@ def inc_subsequences(l):
     i = 0
     while i < (1 << len(l)):
         j = i
-        print i
         i += 1
         repr = []
         while j:
-            lsb = j & ~(j - 1)
-            key = int(math.log(lsb, 2))
+            lsb = j & ~(j - 1)                      # get least segnificant bit value which equal to 2**key
+            key = int(math.log(lsb, 2))             # get the key from previous
             if key > 0 and l[key] < l[key - 1]:
-                print l, key, l[key], l[key - 1]
+                print((l, key, l[key], l[key - 1]))
                 break
             repr.append(l[key])
             j &= j - 1
@@ -40,20 +39,20 @@ def inc_subsequences(l):
 
 def inc_subsequences1(l):
     res = set()
-    for size in xrange(1, len(l) + 1):
+    for size in range(1, len(l) + 1):
         for c in itertools.combinations(l, size):
             if sorted(c) == list(c):
                 res.add(c)
     return res
 
 
-a = tuple([random.randint(0, 100) for i in xrange(4)])
+a = tuple([random.randint(0, 100) for i in range(4)])
 
 st = time.time()
 r = subarrays(a)
-print time.time() - st
-print len(r)
-print r
+print((time.time() - st))
+print((len(r)))
+print(r)
 
 # st = time.time()
 # r = inc_subsequences(a)

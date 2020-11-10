@@ -30,7 +30,7 @@ class Solution:
     # @return an integer
     def solve(self, A, B, C):
         ind = dict(A=0, B=0, C=0)
-        min_distance = sys.maxint
+        min_distance = sys.maxsize
         while ind["A"] < len(
             A) and ind["B"] < len(
             B) and ind["C"] < len(C):
@@ -56,4 +56,4 @@ A = [1, 4, 5, 8, 10]
 B = [6, 9, 10]
 C = [2, 3, 6, 10]
 s = Solution()
-print s.solve(A, B, C)
+print(s.solve(A, B, C))

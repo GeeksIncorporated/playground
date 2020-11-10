@@ -63,12 +63,12 @@ class Solution:
 
 s = Solution()
 
-print(s.findMedianSortedArrays([], [20]))
-print(s.findMedianSortedArrays([1, 4, 5], [2, 3]))
-print(s.findMedianSortedArrays(
+print((s.findMedianSortedArrays([], [20])))
+print((s.findMedianSortedArrays([1, 4, 5], [2, 3])))
+print((s.findMedianSortedArrays(
      [-50, -41, -40, -19, 5, 21, 28],
-     [-50, -21, -10]))
+     [-50, -21, -10])))
 
-print(s.findMedianSortedArrays(
+print((s.findMedianSortedArrays(
     [-50, -47, -36, -35, 0, 13, 14, 16],
-    [-31, 1, 9, 23, 30, 39]))
+    [-31, 1, 9, 23, 30, 39])))

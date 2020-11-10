@@ -44,7 +44,7 @@ class Solution:
                 (x, min(len(A[0]) - 1, y + 1)),
                 (x, max(0, y - 1)))
 
-        adjs = set(filter(lambda c: A[c[0]][c[1]] == "X", adjs))
+        adjs = set([c for c in adjs if A[c[0]][c[1]] == "X"])
         adjs.discard(node)
         return adjs
 
@@ -78,4 +78,4 @@ A = ["XOOOOOXXOX",
      "XXXOXOXXXO"]
 
 s = Solution()
-print(s.black(A))
+print((s.black(A)))

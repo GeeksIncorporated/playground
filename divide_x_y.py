@@ -1,4 +1,4 @@
-PRECISION = 0.0000000001
+PRECISION = 0.0000000000001
 
 
 def divide_x_y(x, y):
@@ -20,4 +20,4 @@ def divide_x_y(x, y):
             r = k
 
 
-print divide_x_y(8, 3)
+print(divide_x_y(10, 3))

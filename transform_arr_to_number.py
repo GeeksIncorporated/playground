@@ -1,3 +1,4 @@
+from functools import reduce
 
 def num(arr):
     res = reduce(lambda x, y: 10 * x + y, arr)

@@ -1,7 +1,7 @@
 import os
 import sys
 import time
-from Queue import Queue
+from queue import Queue
 from collections import defaultdict
 sys.setrecursionlimit(100000)
 
@@ -13,7 +13,7 @@ class Solution:
 
         self.W = {}  # weights
         self.E = defaultdict(lambda: [])  # Edges
-        self.C = dict(zip(xrange(1, n + 1), map(int, c.split(" "))))  # Colors
+        self.C = dict(list(zip(list(range(1, n + 1)), list(map(int, c.split(" "))))))  # Colors
 
         for line in w:
             u, v, w = line.strip().split(' ')
@@ -98,7 +98,7 @@ if __name__ == '__main__':
             expected_result = int(f.readline())
             c = f.readline()
             w = []
-            for i in xrange(n):
+            for i in range(n):
                 line = f.readline()
                 if not line:
                     continue
@@ -107,4 +107,4 @@ if __name__ == '__main__':
             st = time.time()
             res = s.solve()
             assert res == expected_result, "Got invalid result with test: %s" % filename
-            print "Ok:", filename, n, "entries took:", time.time() - st, "Res:", res
+            print("Ok:", filename, n, "entries took:", time.time() - st, "Res:", res)

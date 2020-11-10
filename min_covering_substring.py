@@ -44,4 +44,4 @@ def min_covering_subs(A, Q):
 a = "good we the champions so the we good are we the champions " \
     "we are the".split(" ")
 q = "we are the champions".split(" ")
-print(min_covering_subs(a, q))
+print((min_covering_subs(a, q)))

@@ -34,7 +34,7 @@ def isBalanced(s):
 
 if __name__ == '__main__':
     for sample in ("{[()]}", "{[(])}", "{{[[(())]]}}"):
-        print(isBalanced(sample))
+        print((isBalanced(sample)))
     # Expected output:
     # True
     # False

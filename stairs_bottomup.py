@@ -26,7 +26,7 @@ class Solution:
         prev1 = 1
         prev2 = 1
         curr = 2
-        for i in xrange(1, A):
+        for i in range(1, A):
             curr = prev1 + prev2
             prev2 = prev1
             prev1 = curr
@@ -36,5 +36,5 @@ import time
 
 s = Solution()
 st = time.time()
-print s.climbStairs(30)
-print time.time() - st
+print((s.climbStairs(30)))
+print((time.time() - st))

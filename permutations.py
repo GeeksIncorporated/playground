@@ -11,7 +11,7 @@ def perms(A):
         yield A
         yield [A[1], A[0]]
     else:
-        for i in xrange(len(A)):
+        for i in range(len(A)):
             for p in perms(A[:i] + A[i + 1:]):
                 yield [A[i]] + p
 
@@ -21,7 +21,7 @@ def perms_with_length(A, l):
         for a in A:
             yield [a]
     else:
-        for i in xrange(len(A)):
+        for i in range(len(A)):
             for p in perms_with_length(
                     A[:i] + A[i + 1:],
                     l - 1):
@@ -34,7 +34,7 @@ st = time.time()
 
 t1 = time.time()
 for p in perms_with_length([0], 1):
-    print p
+    print(p)
 
-print t1 - st
-print time.time() - t1
+print(t1 - st)
+print(time.time() - t1)

@@ -6,7 +6,7 @@ subs = []
 # recursive approach
 def solve(A):
     if not A:
-        print subs
+        print(subs)
         return
 
     subs.append(A[-1])
@@ -31,16 +31,16 @@ def solve1(A):
             n ^= 1 << lsb
             yield lsb
 
-    for i in xrange(upper):
-        print [A[lsb] for lsb in get_next_lsb(i)]
+    for i in range(upper):
+        print([A[lsb] for lsb in get_next_lsb(i)])
 
 
-A = range(15)
+A = list(range(15))
 
 st = time.time()
 solve(A)
 t1 = time.time() - st
-print
+print()
 st = time.time()
 solve1(A)
-print t1, time.time() - st
+print(t1, time.time() - st)

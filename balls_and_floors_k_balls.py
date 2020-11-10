@@ -24,7 +24,7 @@ def solve(balls, floors):
 
 balls = 2
 floors = 100
-print(solve(balls, range(1, floors)))
+print((solve(balls, list(range(1, floors)))))
 
 # Empirical complexity estimates like Nlogk
 # Times are as following:

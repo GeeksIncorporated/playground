@@ -16,8 +16,9 @@ def coins_change(n, coins):
     if n < 0 or len(coins) == 0:
         return 0
 
-    table[n][len(coins)] = coins_change(
-        n, coins[:-1]) + coins_change(n - coins[-1], coins)
+    table[n][len(coins)] = \
+        coins_change(n, coins[:-1]) + \
+        coins_change(n - coins[-1], coins)
     return table[n][len(coins)]
 
 
@@ -54,18 +55,18 @@ coins = [1, 2, 5]
 st = time.time()
 r = coins_change(n, coins)
 t1 = time.time() - st
-print(r, t1)
+print((r, t1))
+#
+# st = time.time()
+# r = coins_change_bottom_up(n, coins)
+# t2 = time.time() - st
+# print((r, t2))
+#
+# st = time.time()
+# r = coins_change_bottomup_short(n, coins)
+# t3 = time.time() - st
+# print((r, t3))
 
-st = time.time()
-r = coins_change_bottom_up(n, coins)
-t2 = time.time() - st
-print(r, t2)
-
-st = time.time()
-r = coins_change_bottomup_short(n, coins)
-t3 = time.time() - st
-print(r, t3)
-
-
-print("Bottom up is faster x%.1f" % (float(t1)/t2))
+#
+# print(("Bottom up is faster x%.1f" % (float(t1)/t2)))
 

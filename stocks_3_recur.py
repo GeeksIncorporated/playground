@@ -17,8 +17,8 @@ class Solution:
                 return self.cache[l]
 
             max_profit = 0
-            for i in xrange(len(A) - 1):
-                for j in xrange(i + 1, len(A)):
+            for i in range(len(A) - 1):
+                for j in range(i + 1, len(A)):
                     max_profit = max(
                         [A[j] - A[i] + solve(A[j + 1:], d - 1),
                          max_profit])

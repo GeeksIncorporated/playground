@@ -20,7 +20,7 @@ pygame.display.set_caption("Towers of Hanoi")
 
 
 def moveDisk(disk, to):
-    print("Move disk %d to peg %d" % (disk, to))
+    print(("Move disk %d to peg %d" % (disk, to)))
     r = radius * (disk + 1)
     c = pygame.Color(cols[disk])
     (x1, _, _, _) = rect[disk]  # current position

@@ -21,11 +21,11 @@ def is_safe(node, color):
             return False
     return True
 
-nodes = G.keys()
+nodes = list(G.keys())
 
 def paint_graph():
     if len(nodes) == 0:
-        print NODES
+        print(NODES)
     else:
         node = nodes.pop()
         for color in (RED, BLUE, GREEN):

@@ -22,7 +22,7 @@ def get_all_substrings_top_down(s, i, j):
 
 def get_all_substrings_bottom_up(s):
     n = len(s)
-    T = defaultdict(lambda : defaultdict(int))
+    T = defaultdict(lambda: defaultdict(int))
     for p in range(n):
         T[p][p] = p
 
@@ -38,4 +38,4 @@ s = "012"
 #     print s[sub[0]: sub[1] + 1]
 
 T = get_all_substrings_bottom_up(s)
-print T[0][2]
+print(T[0][2])

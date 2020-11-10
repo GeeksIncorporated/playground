@@ -8,9 +8,9 @@ class Solution:
             A /= 10
 
         s = set()
-        for i in xrange(len(digits)):
+        for i in range(len(digits)):
             product = 1
-            for j in xrange(i, len(digits)):
+            for j in range(i, len(digits)):
                 product *= digits[j]
                 if product in s:
                     return False
@@ -18,4 +18,4 @@ class Solution:
         return True
 
 s = Solution()
-print s.colorful(2345)
+print(s.colorful(2345))

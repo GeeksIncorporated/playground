@@ -3,8 +3,8 @@ import random
 from copy import copy
 
 n = 1000
-arr = [random.randint(0, n) for i in xrange(n)]
-print arr
+arr = [random.randint(0, n) for i in range(n)]
+print(arr)
 
 
 def checksorted(arr):
@@ -34,13 +34,13 @@ def stusort1(arr):
     while True:
         shuffle(arr)
         if checksorted(arr):
-            print arr
+            print(arr)
             break
 
 
 st = time.time()
 stusort1(copy(arr))
-print(time.time() - st)
+print((time.time() - st))
 
 
 def bubbleSort(alist):
@@ -55,5 +55,5 @@ def bubbleSort(alist):
 print(arr)
 st = time.time()
 bubbleSort(arr)
-print(time.time() - st)
+print((time.time() - st))
 print(arr)

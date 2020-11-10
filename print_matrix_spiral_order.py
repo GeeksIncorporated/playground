@@ -23,20 +23,20 @@ def print_spiral_order(arr):
 
     n = len(arr) - 1
     if n == 0:
-        print arr[0][0]
+        print(arr[0][0])
         return
 
     for i in range(n):
-        print arr[0][i],
+        print(arr[0][i], end=' ')
 
     for i in range(n):
-        print arr[i][n],
+        print(arr[i][n], end=' ')
 
     for i in range(n, 0, -1):
-        print arr[n][i],
+        print(arr[n][i], end=' ')
 
     for i in range(n, 0, -1):
-        print arr[i][0],
+        print(arr[i][0], end=' ')
 
     return print_spiral_order(submatrix(arr))
 

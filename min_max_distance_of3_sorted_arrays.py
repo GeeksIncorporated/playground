@@ -55,7 +55,7 @@ A = [1, 4, 10]
 B = [2, 15, 20]
 C = [10, 12]
 s = Solution()
-print s.minimize(A, B, C)
+print(s.minimize(A, B, C))
 
 
 # Below is the solution from the site which is less optimized, find why..

@@ -60,5 +60,5 @@ s.build_binary_tree_from_level_order(
     list(map(int, T.split(' ')))
 )
 
-print(s.maxPathSum(s.T))
+print((s.maxPathSum(s.T)))
 

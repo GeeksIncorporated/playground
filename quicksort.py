@@ -26,8 +26,8 @@ def stupid_sort(arr, l, r):
 
 
 n = 100000
-arr = [random.randint(1, n) for i in xrange(n)]
+arr = [random.randint(1, n) for i in range(n)]
 st = time.time()
 stupid_sort(arr, 0, len(arr) - 1)
-print time.time() - st
-print arr
+print(time.time() - st)
+print(arr)

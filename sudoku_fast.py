@@ -71,7 +71,7 @@ class Board(object):
         self.iters += 1
         if self.iters % 1000 == 0:
             self.display(board)
-            print(self.iters, time.time() - self.st)
+            print((self.iters, time.time() - self.st))
         sorted_cands = []
         for i in range(9):
             for j in range(9):
@@ -511,7 +511,7 @@ if __name__ == '__main__':
         if board.iters > max_iters:
             max_iters = board.iters
             max_iters_board = b
-            print(max_iters, max_iters_board)
+            print((max_iters, max_iters_board))
             pprint(board._solved_board)
             with open("/tmp/solved", "a+") as f:
                 f.write("%s\n" % b)
@@ -519,4 +519,4 @@ if __name__ == '__main__':
                 f.write(pformat(board._solved_board))
                 f.write("\n%s %s\n-----\n" % (
                     max_iters, max_iters_board))
-    print(max_iters, max_iters_board)
+    print((max_iters, max_iters_board))
