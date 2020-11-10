@@ -37,7 +37,7 @@ class Solution:
     def threeSumClosest(self, A, B):
         res = []
         A = sorted(A)
-        closest = sys.maxint
+        closest = sys.maxsize
         res = 0
         for i, a in enumerate(A):
             e1, e2 = self.twoSumClosest(
@@ -62,8 +62,8 @@ A = [-5, 1, 4, -7, 10, -7, 0, 7, 3, 0,
      -4, -3, 1, 6, -3]
 B = -1
 s = Solution()
-print s.threeSumClosest(A, B)
+print(s.threeSumClosest(A, B))
 
 A = [-1, 2, 1, -4]
 B = 1
-print s.threeSumClosest(A, B)
+print(s.threeSumClosest(A, B))

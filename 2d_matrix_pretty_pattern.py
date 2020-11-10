@@ -39,42 +39,42 @@ class Solution:
     def prettyPrint(self, A):
 
         # M is going to be a 2d zeros array with size 2Ax2A
-        M = map(list, ((0,) * (2 * A - 1),) * (2 * A - 1))
+        M = list(map(list, ((0,) * (2 * A - 1),) * (2 * A - 1)))
 
         A -= 1
 
         # Going to fill the M by quarter
         # 1:1
-        for x in xrange(A + 1, -1, -1):
-            for i in xrange(x):
+        for x in range(A + 1, -1, -1):
+            for i in range(x):
                 M[A + i][A + x - 1] = x
 
-            for j in xrange(x):
+            for j in range(x):
                 M[A + x - 1][A + j] = x
 
         # 1:-1
-        for x in xrange(A + 1, -1, -1):
-            for i in xrange(x):
+        for x in range(A + 1, -1, -1):
+            for i in range(x):
                 M[A + i][A - (x - 1)] = x
 
-            for j in xrange(x):
+            for j in range(x):
                 M[A + x - 1][A - j] = x
 
         # -1:1
-        for x in xrange(A + 1, -1, -1):
-            for i in xrange(x):
+        for x in range(A + 1, -1, -1):
+            for i in range(x):
                 M[A - i][A + x - 1] = x
 
-            for j in xrange(x):
+            for j in range(x):
                 M[A][A + j] = x
                 M[A - (x - 1)][A + j] = x
 
         # -1:-1
-        for x in xrange(A + 1, -1, -1):
-            for i in xrange(x):
+        for x in range(A + 1, -1, -1):
+            for i in range(x):
                 M[A - i][A - (x - 1)] = x
 
-            for j in xrange(x):
+            for j in range(x):
                 M[A - (x - 1)][A - j] = x
 
         return M

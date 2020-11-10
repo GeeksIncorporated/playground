@@ -13,11 +13,11 @@ maxage = 120
 
 def gettriple(n):
     s1 = min(maxage, int(math.sqrt(n)) + 1)
-    for n1 in xrange(1, s1):
+    for n1 in range(1, s1):
         if n % n1 == 0:
             res = n / n1
             s2 = min(maxage, int(math.sqrt(n)) + 1)
-            for n2 in xrange(1, s2):
+            for n2 in range(1, s2):
                 if res % n2 == 0:
                     n3 = int(res / n2)
                     if n3 > maxage:
@@ -43,7 +43,7 @@ def main(n):
     for t in solve(n):
         sums[sum(t)].append(t)
 
-    for k, v in sums.items():
+    for k, v in list(sums.items()):
         if len(v) > 1:
             for t in v:
                 if isgood(t):
@@ -51,15 +51,15 @@ def main(n):
 
 
 st = time.time()
-for s1 in xrange(1, maxage):
-    for s2 in xrange(s1, maxage):
+for s1 in range(1, maxage):
+    for s2 in range(s1, maxage):
         i = s1 * s2 * s2
         l = list(main(i))
         if len(l) == 1:
             if (s1, s2, s2) not in l[0][0]:
                 continue
             c += 1
-            print '\r', l
+            print('\r', l)
             sys.stdout.flush()
             res = l[0][1]
             if len(h) <= 100:
@@ -69,6 +69,6 @@ for s1 in xrange(1, maxage):
 
 while h:
     r = heapq.heappop(h)
-    print r
+    print(r)
 
-print c, time.time() - st
+print(c, time.time() - st)

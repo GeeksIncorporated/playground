@@ -38,6 +38,6 @@ def sort_dutch_flag(m):
 
 
 i = 4
-print(a, a[i])
+print((a, a[i]))
 sort_dutch_flag(i)
 print(a)
